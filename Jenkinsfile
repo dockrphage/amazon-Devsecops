@@ -71,6 +71,13 @@ pipeline {
                 sh "trivy fs . > trivyfs.txt"
             }
         }
+        stage("Docker Login") {
+            steps {
+                withCredentials([string(credentialsId: 'docker-cred', variable: 'dockerpwd')]) {
+                sh "docker login -u dockrphage -p ${dockerpwd}"
+        }
+    }
+}
 
         stage("Build Docker Image") {
             steps {
