@@ -44,11 +44,11 @@ pipeline {
         }
         }
 
-        stage("Install NPM Dependencies") {
+/*         stage("Install NPM Dependencies") {
             steps {
                 sh "npm install"
             }
-        }
+        } */
         
        
         stage("OWASP FS Scan") {
